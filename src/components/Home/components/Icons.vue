@@ -73,15 +73,15 @@ export default {
   },
   computed: {
     pages () {
-        const pages = []
-        this.iconList.forEach((item, index) => {
-            const page = Math.floor(index / 8)
-            if (!pages[page]) {
-                pages[page] = []
-            }
-            pages[page].push(item)
-        })
-        return pages
+      const pages = []
+      this.iconList.forEach((item, index) => {
+        const page = Math.floor(index / 8)
+        if (!pages[page]) {
+          pages[page] = []
+        }
+        pages[page].push(item)
+      })
+      return pages
     }
   }
 }
@@ -93,6 +93,8 @@ export default {
 .icons >>> .swiper-container
     height: 0
     padding-bottom: 50%
+.icons
+    margin-top: 5px
 .icon
     position: relative
     float: left
