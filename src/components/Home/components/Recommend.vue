@@ -2,7 +2,7 @@
     <div>
         <div class="recommend-title">热门推荐</div>
         <ul>
-            <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+            <li class="item border-bottom" v-for="item of recommend" :key="item.id">
                 <img class="item-img" :src="item.recommendImg">
                 <div class="item-info">
                     <p class="item-title">{{item.itemTitle}}</p>
@@ -17,27 +17,30 @@
 <script type="text/javascript">
 export default {
   name: 'HomeRecommend',
+  props: {
+    recommend: Array
+  },
   data: function () {
     return {
-      recommendList: [{
-        id: '01',
-        recommendImg: 'http://img1.qunarzz.com/sight/p0/1902/84/84696f368bbec10da3.img.jpg_200x200_50323152.jpg',
-        itemTitle: '北京世界园艺博览会',
-        itemDesc: '北京世界园艺博览会北京世界园艺博览会',
-        button: '查看详情'
-      }, {
-        id: '02',
-        recommendImg: 'http://img1.qunarzz.com/sight/p0/1708/2b/2b3b94de99c0a425a3.img.jpg_200x200_2458ffb2.jpg',
-        itemTitle: '八达岭长城',
-        itemDesc: '不到长城非好汉',
-        button: '查看详情'
-      }, {
-        id: '03',
-        recommendImg: 'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg',
-        itemTitle: '故宫',
-        itemDesc: '世界五大宫之首，穿越与您近在咫尺',
-        button: '查看详情'
-      }]
+      // recommendList: [{
+      //   id: '01',
+      //   recommendImg: 'http://img1.qunarzz.com/sight/p0/1902/84/84696f368bbec10da3.img.jpg_200x200_50323152.jpg',
+      //   itemTitle: '北京世界园艺博览会',
+      //   itemDesc: '北京世界园艺博览会北京世界园艺博览会',
+      //   button: '查看详情'
+      // }, {
+      //   id: '02',
+      //   recommendImg: 'http://img1.qunarzz.com/sight/p0/1708/2b/2b3b94de99c0a425a3.img.jpg_200x200_2458ffb2.jpg',
+      //   itemTitle: '八达岭长城',
+      //   itemDesc: '不到长城非好汉',
+      //   button: '查看详情'
+      // }, {
+      //   id: '03',
+      //   recommendImg: 'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg',
+      //   itemTitle: '故宫',
+      //   itemDesc: '世界五大宫之首，穿越与您近在咫尺',
+      //   button: '查看详情'
+      // }]
     }
   }
 }
