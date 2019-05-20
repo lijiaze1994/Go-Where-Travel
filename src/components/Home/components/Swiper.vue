@@ -54,7 +54,7 @@ export default {
     width: 100%
     height: 0
     overflow: hidden
-    padding-bottom: 28%
+    padding-bottom: 26.7%
 .swiper-img
     width: 100%
 .wrapper >>> .swiper-pagination-bullet-active
