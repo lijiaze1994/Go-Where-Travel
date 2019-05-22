@@ -1,20 +1,37 @@
 <template>
     <ul class="list">
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
+        <li
+            class="item"
+            v-for="(item, index) of cities"
+            :key="index"
+            @click="LetterClick"
+        >
+            {{item.initial}}
+        </li>
     </ul>
 </template>
 
 <script type="text/javascript">
 export default {
-  name: 'CityAlphabet'
+  name: 'CityAlphabet',
+  props: {
+    cities: Array
+  },
+  methods: {
+    LetterClick (e) {
+      this.$emit('change', e.target.innerHTML)
+    }
+    // TouchStart () {
+    //   this.touchStatus = true
+    // },
+    // TouchMove () {
+    //   if (this.touchStatus === true) {
+    //   }
+    // },
+    // TouchEnd () {
+    //   this.touchStatus = false
+    // }
+  }
 }
 </script>
 
@@ -30,8 +47,9 @@ export default {
     flex-direction: column
     justify-content: center
 .item
-    line-height: 20px
+    line-height: 16px
     text-align: center
     color: $backgroundColor
-    font-size: 14px
+    font-size: 12px
+    font-weight:bold
 </style>

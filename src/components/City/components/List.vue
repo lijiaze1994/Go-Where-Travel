@@ -12,48 +12,15 @@
             <div class="area">
                 <div class="title border-topbottom">热门城市</div>
                 <div class="button-list">
-                    <div class="button-wrapper">
-                        <div class="button">北京</div>
-                    </div>
-                     <div class="button-wrapper">
-                        <div class="button">上海</div>
-                    </div>
-                     <div class="button-wrapper">
-                        <div class="button">深圳</div>
-                    </div>
-                     <div class="button-wrapper">
-                        <div class="button">青岛</div>
+                    <div class="button-wrapper" v-for="(item, index) of hostCities" :key="index">
+                        <div class="button">{{item.name}}</div>
                     </div>
                 </div>
             </div>
-            <div class="area">
-                <div class="title border-topbottom">A</div>
+            <div class="area" v-for="(item, index) of cities" :key="index" :ref="item.initial">
+                <div class="title border-topbottom">{{item.initial}}</div>
                 <div class="item-list">
-                    <div class="item border-bottom">阿坝藏族羌族自治州</div>
-                    <div class="item border-bottom">阿坝藏族羌族自治州</div>
-                    <div class="item border-bottom">阿坝藏族羌族自治州</div>
-                    <div class="item border-bottom">阿坝藏族羌族自治州</div>
-                </div>
-                <div class="title border-topbottom">A</div>
-                <div class="item-list">
-                    <div class="item border-bottom">阿坝藏族羌族自治州</div>
-                    <div class="item border-bottom">阿坝藏族羌族自治州</div>
-                    <div class="item border-bottom">阿坝藏族羌族自治州</div>
-                    <div class="item border-bottom">阿坝藏族羌族自治州</div>
-                </div>
-                <div class="title border-topbottom">A</div>
-                <div class="item-list">
-                    <div class="item border-bottom">阿坝藏族羌族自治州</div>
-                    <div class="item border-bottom">阿坝藏族羌族自治州</div>
-                    <div class="item border-bottom">阿坝藏族羌族自治州</div>
-                    <div class="item border-bottom">阿坝藏族羌族自治州</div>
-                </div>
-                <div class="title border-topbottom">A</div>
-                <div class="item-list">
-                    <div class="item border-bottom">阿坝藏族羌族自治州</div>
-                    <div class="item border-bottom">阿坝藏族羌族自治州</div>
-                    <div class="item border-bottom">阿坝藏族羌族自治州</div>
-                    <div class="item border-bottom">阿坝藏族羌族自治州</div>
+                    <div class="item border-bottom" v-for="index of item.list" :key="index.label">{{index.name}}</div>
                 </div>
             </div>
         </div>
@@ -64,8 +31,21 @@
 import Bscroll from 'better-scroll'
 export default {
   name: 'CityList',
+  props: {
+    cities: Array,
+    hostCities: Array,
+    letter: String
+  },
   mounted () {
     this.scroll = new Bscroll(this.$refs.wrapper)
+  },
+  watch: {
+    letter () {
+      if (this.letter) {
+        const element = this.$refs[this.letter][0]
+        this.scroll.scrollToElement(element)
+      }
+    }
   }
 }
 </script>
